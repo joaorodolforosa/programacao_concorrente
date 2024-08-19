@@ -6,19 +6,15 @@ import threads.MyThread;
  *
  * @author Prof Rodolfo
  */
-public class UseThreads {
+public class MoreThreads {
 
     public static void main(String[] args) {
         System.out.println("Thread principal inicializando");
 
-        // Primeiro constrói um objeto MyThread
-        MyThread mt = new MyThread("Thread Filha #1");
-
-        // Em seguida, constrói uma thread a partir desse objeto
-        Thread newThrd = new Thread(mt);
-
-        // Para concluir, começa a execução da thread
-        newThrd.start();
+        // Cria e começa a executar 3 threads
+        MyThread mt1 = new MyThread("Thread Filha #1");
+        MyThread mt2 = new MyThread("Thread Filha #2");
+        MyThread mt3 = new MyThread("Thread Filha #3");
 
         for (int i = 0; i < 50; i++) {
             System.out.print(".");

@@ -10,26 +10,28 @@ package threads;
  */
 public class MyThread implements Runnable {
 
-    String thrdName;
+    Thread thrd;
 
+    // Constrói uma nova thread
     public MyThread(String name) {
-        thrdName = name;
+        thrd = new Thread(this, name);
+        thrd.start();
     }
 
     // Ponto de entrada da thread
     @Override
     public void run() {
-        System.out.println(thrdName + " inicializando.");
+        System.out.println(thrd.getName() + " inicializando.");
         try {
             for (int count = 0; count < 10; count++) {
                 Thread.sleep(400);
-                System.out.println("Em " + thrdName + ",contador é " + count);
+                System.out.println("Em " + thrd.getName() + ",contador é " + count);
 
             }
         } catch (InterruptedException exc) {
-            System.out.println(thrdName + "interrompida.");
+            System.out.println(thrd.getName() + "interrompida.");
         }
-        System.out.println(thrdName + " terminando.");
+        System.out.println(thrd.getName() + " terminando.");
     }
 
 }
